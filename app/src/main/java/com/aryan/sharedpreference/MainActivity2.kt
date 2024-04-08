@@ -20,8 +20,7 @@ class MainActivity2 : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        val editor = getSharedPreferences("My Settings", MODE_PRIVATE)
+        val editor = getSharedPreferences("MySettings", MODE_PRIVATE)
         binding.textView.text = "Hey! your email is ${editor.getString("email",null)}"+ "\n And Your password is ${editor.getString("password",null)}"
-        startActivity(Intent(this,MainActivity2::class.java))
     }
 }

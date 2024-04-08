@@ -1,6 +1,7 @@
 package com.aryan.sharedpreference
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -23,15 +24,16 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        val editor = getSharedPreferences("My Settings", Context.MODE_PRIVATE)
+        val editor = getSharedPreferences("MySettings", Context.MODE_PRIVATE)
         binding.EmailText.setText(editor.getString("email",null))
         binding.PassText.setText(editor.getString("password",null))
 
         binding.login.setOnClickListener{
-            val editor = getSharedPreferences("My Settings", Context.MODE_PRIVATE).edit()
+            val editor = getSharedPreferences("MySettings", Context.MODE_PRIVATE).edit()
             editor.putString("email",binding.EmailText.text.toString())
             editor.putString("password",binding.PassText.text.toString())
             editor.apply()
+            startActivity(Intent(this,MainActivity2::class.java))
         }
     }
 }
