@@ -28,6 +28,11 @@ class MainActivity : AppCompatActivity() {
         binding.EmailText.setText(editor.getString("email",null))
         binding.PassText.setText(editor.getString("password",null))
 
+        binding.imageButton.setOnClickListener {
+            startActivity(Intent(this,MainActivity3::class.java))
+
+        }
+
         binding.login.setOnClickListener{
             val editor = getSharedPreferences("MySettings", Context.MODE_PRIVATE).edit()
             editor.putString("email",binding.EmailText.text.toString())
